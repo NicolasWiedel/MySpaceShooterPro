@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802834, g: 0.2257135, b: 0.3069223, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,7 +233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe175e883f4e5f64e9112e185a006b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  _speed: 5
+  _laserPrefab: {fileID: 3251628277172931748, guid: 97bb1c44cfb03994488a0725d82766f0, type: 3}
+  _laserOffset: {x: 0, y: 0.8, z: 0}
+  _fireRate: 0.5
 --- !u!1 &1867032187
 GameObject:
   m_ObjectHideFlags: 0
