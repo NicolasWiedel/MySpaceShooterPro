@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private Vector3 _laserOffset = new Vector3(0, 0.8f, 0);
     [SerializeField]
     private float _fireRate = 0.15f;
+    [SerializeField]
+    private int _lives = 3;
 
     private float _canFire = -1f;
 
@@ -38,7 +40,7 @@ public class Player : MonoBehaviour
         // Player movement
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-
+       
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
@@ -61,5 +63,15 @@ public class Player : MonoBehaviour
     {
         _canFire = Time.time + _fireRate;
         Instantiate(_laserPrefab, transform.position + _laserOffset, Quaternion.identity);  
+    }
+
+    public void Damage()
+    {
+        _lives--;
+
+        if (_lives < 1) 
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
