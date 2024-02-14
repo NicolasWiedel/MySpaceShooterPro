@@ -29,7 +29,7 @@ public class SpawnManager : MonoBehaviour
         yield return null; //wait for one frame
         SpawnEnemy();
 
-        while (_stopSpawning)
+        while (!_stopSpawning)
         {
             yield return new WaitForSeconds(5.0f);
             SpawnEnemy();
@@ -39,7 +39,7 @@ public class SpawnManager : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject newEnemy = Instantiate(_enemyPrefab,
-            new Vector3(Random.Range(-11.0f, 11.0f), 8.0f, 0.0f),
+            new Vector3(Random.Range(-8.0f, 8.0f), 8.0f, 0.0f),
             Quaternion.identity);
         newEnemy.transform.parent = _enemyContainer.transform;
     }

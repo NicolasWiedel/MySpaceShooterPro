@@ -19,12 +19,12 @@ public class Enemy : MonoBehaviour
 
         if(transform.position.y <= -6.0f)
         {
-            float randomX = Random.Range(-11.0f, 11.0f);
+            float randomX = Random.Range(-8.0f, 8.0f);
             transform.position = new Vector3(randomX, 8.0f, 0);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
        if(other.tag == "Player")
         {
