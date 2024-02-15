@@ -253,7 +253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896010302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.97, y: -0.93, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -320,7 +320,7 @@ MonoBehaviour:
   powerups:
   - {fileID: 823545294979075384, guid: 8ca8571237cc9fa4799a09274a095f47, type: 3}
   - {fileID: 68262210671232350, guid: af6f21283823eb34a9bf03ddc4ae9414, type: 3}
-  - {fileID: 0}
+  - {fileID: 8266231437588803858, guid: 686ee21204ed3164ab8129a8a6c2a1b1, type: 3}
   _powerupContainer: {fileID: 53961281}
 --- !u!4 &1511634296
 Transform:
