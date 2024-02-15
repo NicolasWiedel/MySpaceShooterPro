@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private int _lives = 3;
     [SerializeField]
     bool _trippleShotAktive = false;
+    [SerializeField]
+    bool _speedBoostActive = false;
 
     private SpawnManager _spawnManager;
 
@@ -105,9 +107,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void SetSpeedBoostActive()
+    {
+        if (!_speedBoostActive)
+        {
+            _speedBoostActive = true;
+            StartCoroutine(SpeedPowerupRoutine());
+        }
+    }
+
     IEnumerator TrippleShotPowerDownRoutine()
     {
         yield return new WaitForSeconds(5.0f);
         _trippleShotAktive = false;
+    }
+
+    IEnumerator SpeedPowerupRoutine()
+    {
+        _speed = 10f;
+        yield return new WaitForSeconds(7.0f);
+        _speed = 5f;
+        _speedBoostActive = false;
     }
 }

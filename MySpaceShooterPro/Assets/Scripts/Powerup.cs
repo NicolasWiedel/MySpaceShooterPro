@@ -33,12 +33,20 @@ public class Powerup : MonoBehaviour
             Player player = other.GetComponent<Player>();
             if(player != null)
             {
-                if(_powerupID == 0)
+                switch (_powerupID)
                 {
-                    player.SetTrippleShotActive();
-                }else if(_powerupID == 1)
-                {
-                    Debug.Log("Speed Powerup!");
+                    case 0:
+                        player.SetTrippleShotActive();
+                        break;
+                    case 1:
+                        player.SetSpeedBoostActive();
+                        break;
+                    case 2:
+                        Debug.Log("Schield Powerup!");
+                        break;
+                    default:
+                        Debug.Log("Default!");
+                        break;
                 }
                 
             }
