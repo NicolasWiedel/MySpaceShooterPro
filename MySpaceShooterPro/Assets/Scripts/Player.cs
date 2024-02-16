@@ -17,10 +17,17 @@ public class Player : MonoBehaviour
     private float _fireRate = 0.5f;
     [SerializeField]
     private int _lives = 3;
+
+
+    [SerializeField]
+    GameObject _shieldVisualizer;
+
     [SerializeField]
     bool _trippleShotAktive = false;
     [SerializeField]
     bool _speedBoostActive = false;
+    [SerializeField]
+    bool isShieldActive = false;
 
     private SpawnManager _spawnManager;
 
@@ -29,6 +36,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //_shieldVisualizer = transform.GetChild(0).gameObject;
+
         transform.position = new Vector3(0,0,0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
 
@@ -89,12 +98,21 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        _lives--;
-
-        if (_lives < 1) 
+        if (isShieldActive)
         {
-            _spawnManager.OnPlayerDead();
-            Destroy(this.gameObject);
+            isShieldActive = false;
+            _shieldVisualizer.SetActive(false);
+            return;
+        }
+        else
+        {
+            _lives--;
+
+            if (_lives < 1)
+            {
+                _spawnManager.OnPlayerDead();
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -128,5 +146,11 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(7.0f);
         _speed = 5f;
         _speedBoostActive = false;
+    }
+
+    public void ActivateShield()
+    {
+        _shieldVisualizer.SetActive(true);
+        isShieldActive = true;
     }
 }
