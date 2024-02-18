@@ -30,13 +30,10 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemyRoutine()
     {
-        yield return null; //wait for one frame
-        SpawnEnemy();
-
         while (!_stopSpawning)
         {
-            yield return new WaitForSeconds(5.0f);
             SpawnEnemy();
+            yield return new WaitForSeconds(5.0f);
         }
     }
 
